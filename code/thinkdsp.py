@@ -610,10 +610,17 @@ class Wave(object):
         """
         self.ys = apodize(self.ys, self.framerate, denom, duration)
 
+
+
     def hamming(self):
         """Apply a Hamming window to the wave.
         """
         self.ys *= numpy.hamming(len(self.ys))
+
+    def bartlett(self):
+        """Apply a Bartlett window to the wave.
+        """
+        self.ys *= numpy.bartlett(len(self.ys))
 
     def window(self, window):
         """Apply a window to the wave.
